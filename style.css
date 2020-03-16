@@ -1,0 +1,25 @@
+#filter:focus {
+    border-bottom: 1px solid #555;
+    box-shadow: 0 1px 0 0 #555;
+}
+
+#filter:focus + label {
+    color: #888;
+}
+
+#task:focus {
+    border-bottom: 1px solid #555;
+    box-shadow: 0 1px 0 0 #555;
+}
+
+#task:focus + label {
+    color: #888;
+}
+
+#add:hover {
+    background-color: #42a5f5  !important;
+}
+
+#del:hover {
+    background-color: #ef5350   !important;
+}
