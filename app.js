@@ -10,6 +10,10 @@ loadEventListeners();
 function loadEventListeners(){
     // Add task event
     form.addEventListener("submit", addTask);
+    // Remove task event
+    taskList.addEventListener("click", removeTask);
+    // Clear task event
+    clearBtn.addEventListener("click", clearTasks);
 }
 
 // Add task
@@ -36,4 +40,26 @@ function addTask(e){
     // Clear input
     taskInput.value = "";
     e.preventDefault();
+}
+
+// Remove task
+function removeTask(e){
+    if(e.target.parentElement.classList.contains("delete-item")){
+        if(confirm("¿Estás seguro?")){
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+}
+
+// Clear tasks
+function clearTasks(e){
+    if(taskList.firstChild){
+        if(confirm("¿Estás seguro?")){
+            while(taskList.firstChild){
+                taskList.removeChild(taskList.firstChild);
+            }
+        }
+    } else {
+        alert("No hay tareas en la lista");
+    }
 }
