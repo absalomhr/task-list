@@ -23,3 +23,10 @@
 #del:hover {
     background-color: #ef5350   !important;
 }
+
+#git i{
+    color:black;
+}
+#git i:hover{
+    color:#2196f3;
+}
