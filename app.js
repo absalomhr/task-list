@@ -51,30 +51,30 @@ function getTasks(){
 // Add task
 function addTask(e){
     if(taskInput.value === ""){
-        alert("ESCRIBE UNA TAREA"); 
+        alert("ESCRIBE UNA TAREA");
+    } else {
+        // Create li element
+        const li = document.createElement("li");
+        // Add class
+        li.className = "collection-item";
+        // Create text node and append to li
+        li.appendChild(document.createTextNode(taskInput.value));
+        // Create new link element for task deletion
+        const link = document.createElement("a");
+        link.className = "delete-item secondary-content";
+        // Add icon html
+        link.innerHTML = `<i class="fa fa-remove"></i>`
+        // Append the link to li
+        li.appendChild(link);
+        // Append li to ul
+        taskList.appendChild(li);
+
+        // Store in local storage
+        storeTaskLS(taskInput.value);
+        // Clear input
+        taskInput.value = "";
+        e.preventDefault();
     }
-
-    // Create li element
-    const li = document.createElement("li");
-    // Add class
-    li.className = "collection-item";
-    // Create text node and append to li
-    li.appendChild(document.createTextNode(taskInput.value));
-    // Create new link element for task deletion
-    const link = document.createElement("a");
-    link.className = "delete-item secondary-content";
-    // Add icon html
-    link.innerHTML = `<i class="fa fa-remove"></i>`
-    // Append the link to li
-    li.appendChild(link);
-    // Append li to ul
-    taskList.appendChild(li);
-
-    // Store in local storage
-    storeTaskLS(taskInput.value);
-    // Clear input
-    taskInput.value = "";
-    e.preventDefault();
 }
 
 // Store task LS
